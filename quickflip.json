@@ -3,25 +3,25 @@
     "id": "1",
     "question": "### Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace",
     "answer": "```bash\nkubectl create namespace mynamespace\nkubectl run nginx --image=nginx --restart=Never -n mynamespace```",
-    "category": "Kubernetes"
+    "category": "Kubernetes (CKAD)"
   },
   {
     "id": "2",
-    "question": "### Docker Build\nWhat command builds a Docker image with a specific tag from the current directory?",
-    "answer": "```bash\ndocker build -t <image_name>:<tag> .\n```\n\nThe `.` at the end specifies the current directory as the build context.",
-    "category": "Docker"
+    "question": "### Create the pod that was just described using YAML",
+    "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --dry-run=client -n mynamespace -o yaml > pod.yaml```\nAlternatively, you can run in one line\n```bash kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml | kubectl create -n mynamespace -f -```",
+    "category": "Kubernetes(CKAD)"
   },
   {
     "id": "3",
-    "question": "### Git Rebase\nWhat is the difference between `git merge` and `git rebase`?",
-    "answer": "**Git Merge:**\n- Creates a merge commit\n- Preserves commit history\n- Non-destructive operation\n\n**Git Rebase:**\n- Rewrites commit history\n- Creates a linear history\n- Can cause conflicts if used on shared branches",
-    "category": "Git"
+    "question": "### Create a busybox pod (using YAML) that runs the command \"env\". Run it and see the output",
+    "answer": "```yaml\n# Create a  YAML template with this command \nkubectl run busybox --image=busybox --restart=Never --dry-run=client -o yaml --command -- env > envpod.yaml```",
+    "category": "Kubernetes (CKAD)"
   },
   {
     "id": "4",
-    "question": "### React Hooks\nWhat is the correct way to update state that depends on the previous state value?",
-    "answer": "```javascript\nconst [count, setCount] = useState(0);\n\n// Correct way - using functional update\nsetCount(prevCount => prevCount + 1);\n\n// Avoid this in most cases\nsetCount(count + 1);\n```\n\nFunctional updates ensure you're working with the most current state value.",
-    "category": "React"
+    "question": "Get the YAML for a new namespace called 'myns' without creating it",
+    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client```",
+    "category": "Kubernetes (CKAD)"
   },
   {
     "id": "5",
