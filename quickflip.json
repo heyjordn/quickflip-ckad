@@ -32,13 +32,19 @@
   {
     "id": "6",
     "question": "### Get pods on all namespaces",
-    "answer": "```bash\nkubectl get po --all-namespaces\n```\nAlternatively, we can do\nbash```\nkubectl get po -A\n```",
+    "answer": "```bash\nkubectl get po --all-namespaces\n```\nAlternatively, we can do \nbash```\nkubectl get po -A\n```",
     "category": "Kubernetes (CKAD)"
   },
-    {
+  {
     "id": "7",
     "question": "### Create a pod with image nginx called nginx and expose traffic on port 80",
     "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80\n```",
+    "category": "Kubernetes (CKAD)"
+  },
+  {
+    "id": "8",
+    "question": "If a pod \"nginx\" crashed and restarted, get logs about the previous instance",
+    "answer": "```bash\nkubectl logs nginx -p\n```",
     "category": "Kubernetes (CKAD)"
   }
 ]
