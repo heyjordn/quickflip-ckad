@@ -8,26 +8,26 @@
   {
     "id": "2",
     "question": "### Create the pod that was just described using YAML",
-    "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --dry-run=client -n mynamespace -o yaml > pod.yaml```\nAlternatively, you can run in one line\n```bash kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml | kubectl create -n mynamespace -f -```",
+    "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --dry-run=client -n mynamespace -o yaml > pod.yaml\n```\nAlternatively, you can run in one line\n```bash kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml | kubectl create -n mynamespace -f -\n```",
     "category": "Kubernetes(CKAD)"
   },
   {
     "id": "3",
     "question": "### Create a busybox pod (using YAML) that runs the command \"env\". Run it and see the output",
-    "answer": "```yaml\n# Create a  YAML template with this command \nkubectl run busybox --image=busybox --restart=Never --dry-run=client -o yaml --command -- env > envpod.yaml```",
+    "answer": "```yaml\n# Create a  YAML template with this command \nkubectl run busybox --image=busybox --restart=Never --dry-run=client -o yaml --command -- env > envpod.yaml\n```",
     "category": "Kubernetes (CKAD)"
   },
   {
     "id": "4",
-    "question": "Get the YAML for a new namespace called 'myns' without creating it",
-    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client```",
+    "question": "### Get the YAML for a new namespace called 'myns' without creating it",
+    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client\n```",
     "category": "Kubernetes (CKAD)"
   },
   {
     "id": "5",
-    "question": "### CSS Flexbox\nHow do you center an item both horizontally and vertically using Flexbox?",
-    "answer": "```css\n.container {\n  display: flex;\n  justify-content: center; /* horizontal */\n  align-items: center;     /* vertical */\n  min-height: 100vh;       /* full viewport height */\n}\n```\n\nAlternatively, you can use:\n```css\n.container {\n  display: flex;\n  place-items: center;\n}\n```",
-    "category": "CSS"
+    "question": "### Get the YAML for a new namespace called 'myns' without creating it",
+    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client\n```",
+    "category": "Kubernetes (CKAD)"
   },
   {
     "id": "6",
