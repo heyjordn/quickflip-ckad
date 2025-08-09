@@ -20,19 +20,25 @@
   {
     "id": "4",
     "question": "### Get the YAML for a new namespace called 'myns' without creating it",
-    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client\n```",
+    "answer": "```bash\nkubectl create namespace myns -o yaml --dry-run=client\n```",
     "category": "Kubernetes (CKAD)"
   },
   {
     "id": "5",
     "question": "### Get the YAML for a new namespace called 'myns' without creating it",
-    "answer": "```bash kubectl create namespace myns -o yaml --dry-run=client\n```",
+    "answer": "```bash\nkubectl create namespace myns -o yaml --dry-run=client\n```",
     "category": "Kubernetes (CKAD)"
   },
   {
     "id": "6",
-    "question": "### JavaScript Promises\nWhat is the difference between `Promise.all()` and `Promise.allSettled()`?",
-    "answer": "**Promise.all():**\n- Fails fast - rejects immediately if any promise rejects\n- Returns array of resolved values\n- Best for when all promises must succeed\n\n**Promise.allSettled():**\n- Waits for all promises to complete\n- Returns array of objects with status and value/reason\n- Best for when you want results regardless of failures",
-    "category": "JavaScript"
+    "question": "### Get pods on all namespaces",
+    "answer": "```bash\nkubectl get po --all-namespaces\n```\nAlternatively, we can do\nbash```\nkubectl get po -A\n```",
+    "category": "Kubernetes (CKAD)"
+  },
+    {
+    "id": "7",
+    "question": "### Create a pod with image nginx called nginx and expose traffic on port 80",
+    "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80\n```",
+    "category": "Kubernetes (CKAD)"
   }
 ]
