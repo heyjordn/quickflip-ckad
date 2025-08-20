@@ -3,61 +3,78 @@
     "id": "1",
     "question": "### Create a namespace called 'mynamespace' and a pod with image nginx called nginx on this namespace",
     "answer": "```bash\nkubectl create namespace mynamespace\nkubectl run nginx --image=nginx --restart=Never -n mynamespace\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "2",
     "question": "### Create the pod that was just described using YAML",
     "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --dry-run=client -n mynamespace -o yaml > pod.yaml\n```\nAlternatively, you can run in one line\n```bash kubectl run nginx --image=nginx --restart=Never --dry-run=client -o yaml | kubectl create -n mynamespace -f -\n```",
-    "category": "Kubernetes(CKAD)"
+    "category": "Kubernetes(CKAD) - Core Concepts"
   },
   {
     "id": "3",
     "question": "### Create a busybox pod (using YAML) that runs the command \"env\". Run it and see the output",
     "answer": "```yaml\n# Create a  YAML template with this command \nkubectl run busybox --image=busybox --restart=Never --dry-run=client -o yaml --command -- env > envpod.yaml\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "4",
     "question": "### Given a simple pod called nginx, in the default namespace, execute a simple shell on that pod",
     "answer": "```bash\n kubectl exec -it nginx -- /bin/sh \n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "5",
     "question": "### Get the YAML for a new namespace called 'myns' without creating it",
     "answer": "```bash\nkubectl create namespace myns -o yaml --dry-run=client\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "6",
     "question": "### Get pods on all namespaces",
     "answer": "```bash\nkubectl get po --all-namespaces\n```\nAlternatively, we can do \n\n```bash\nkubectl get po -A\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "7",
     "question": "### Create a pod with image nginx called nginx and expose traffic on port 80",
     "answer": "```bash\nkubectl run nginx --image=nginx --restart=Never --port=80\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "8",
     "question": "If a pod \"nginx\" crashed and restarted, get logs about the previous instance",
     "answer": "```bash\nkubectl logs nginx -p\n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "9",
     "question": "Create a busybox pod that echoes 'hello world' and then exits",
     "answer": "```bash\n kubectl run busybox --image=busybox -it --restart=Never -- echo 'hello world' \n``` \n```bash\n kubectl run busybox --image=busybox -it --restart=Never -- /bin/sh -c 'echo hello world' \n```",
-    "category": "Kubernetes (CKAD)"
+    "category": "Kubernetes (CKAD) - Core Concepts"
   },
   {
     "id": "10",
     "question": "Create a busybox pod that echoes 'hello world' and then exits, However, delete the pod automatically when completed",
     "answer": "```bash\n kubectl run busybox --image=busybox -it --rm --restart=Never -- /bin/sh -c 'echo hello world' \n``` \n",
-    "category": "Kubernetes (CKAD)"
-  }
-
+    "category": "Kubernetes (CKAD) - Core Concepts"
+  },
+  {
+    "id": "11",
+    "question": "Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod",
+    "answer": "```bash\n kubectl run nginx --image=nginx --restart=Never --env=var1=val1 \n# then\nkubectl exec -it nginx -- env\n# or\nkubectl exec -it nginx -- sh -c 'echo $var1'\n# or\nkubectl describe po nginx | grep val1\n```\n",
+    "category": "Kubernetes (CKAD) - Core Concepts"
+  },
+  {
+    "id": "12",
+    "question": "Create an nginx pod and set an env value as 'var1=val1'. Check the env value existence within the pod",
+    "answer": "```bash\n kubectl run nginx --image=nginx --restart=Never --env=var1=val1 \n# then\nkubectl exec -it nginx -- env\n# or\nkubectl exec -it nginx -- sh -c 'echo $var1'\n# or\nkubectl describe po nginx | grep val1\n```\n",
+    "category": "Kubernetes (CKAD) - Multi-container Pods"
+  },
+  {
+    "id": "13",
+    "question": "Create a Pod with two containers, both with image busybox and command \"echo hello; sleep 3600\". Connect to the second container and run 'ls'",
+    "answer": "The easiest way to do it is create a pod with a single container and save its definition in a YAML file:\n\n```bash\n kubectl run busybox --image=busybox --restart=Never -o yaml --dry-run=client -- /bin/sh -c 'echo hello;sleep 3600' > pod.yaml vi pod.yaml```\n",
+    "category": "Kubernetes (CKAD) - Multi-container Pods"
+  },
 ]
